@@ -12,6 +12,16 @@
       <p>{{sayHello()}}</p>
       <a :href="link">링크</a>
       <p v-html="aLinkToMedium"></p>
+      {{number}}
+      <button v-on:click="rollDice">주사위 던지기</button>
+      <br><br>
+      {{count}}
+      <button v-on:click="addCount()">count 1씩 더하기</button>
+      <br><br>
+      <button v-on:dblclick="doubleClick()">더블 클릭</button>
+      <div v-on:mousemove="addCount()">MouseMove 테스트
+        <span v-on:mousemove.stop="">그만</span>
+      </div>
     </div>
 
     <script>
@@ -20,13 +30,29 @@
         data: {
           title: "안녕 VueJS!",
           link: "https:/medium.com",
-          aLinkToMedium: "<a href='http://medium.com'>링크</a>"
+          aLinkToMedium: "<a href='http://medium.com'>링크</a>",
+          number: 0,
+          count: 0
         },
         methods: {
-          sayHello: function () {
+          sayHello() {
             this.title = "안녕하십니까!";
             return this.title;
+          },
+
+          rollDice() {
+            let N = Math.floor(Math.random() * (6)) + 1;
+            this.number = N;
+          },
+
+          addCount() {
+            this.count++;
+          },
+          
+          doubleClick() {
+            console.log("더블 클릭");
           }
+          
         }
       })
     </script>
