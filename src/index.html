@@ -25,6 +25,18 @@
 
       <input type="text" v-model="name">
       {{ name }}
+
+      <br><br>
+
+      <template v-if="dog">
+        <p>TRUE</p>
+      </template>
+      <template v-else>
+        <p v-show="dog">FALSE</p>
+        <p>FALSE</p>
+      </template>
+      <button v-on:click="dog = !dog">Change</button>
+
     </div>
 
     <script>
@@ -36,7 +48,8 @@
           aLinkToMedium: "<a href='http://medium.com'>링크</a>",
           number: 0,
           count: 0,
-          name: "Hoza"
+          name: "Hoza",
+          dog: true
         },
         methods: {
           sayHello() {
