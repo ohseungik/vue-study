@@ -10,13 +10,15 @@
     <div id="app">
       <p>{{sayHello()}}</p>      
       <p>{{howAreYou()}}</p>
+      <a v-bind:href="link">링크</a>
     </div>
 
     <script>
       new Vue({
         el: "#app",
         data: {
-          title: "안녕 VueJS!"
+          title: "안녕 VueJS!",
+          link: "https:/medium.com"
         },
         methods: {
           howAreYou: function () {
