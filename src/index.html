@@ -8,7 +8,8 @@
   <body>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <div id="app">
-      <p>{{title}}</p>      
+      <p>{{sayHello()}}</p>      
+      <p>{{howAreYou()}}</p>
     </div>
 
     <script>
@@ -16,6 +17,15 @@
         el: "#app",
         data: {
           title: "안녕 VueJS!"
+        },
+        methods: {
+          howAreYou: function () {
+            return '기분이 어때?'
+          },
+
+          sayHello: function () {
+            return this.title;
+          }
         }
       })
     </script>
