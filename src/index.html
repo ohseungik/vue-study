@@ -22,6 +22,9 @@
       <div v-on:mousemove="addCount()">MouseMove 테스트
         <span v-on:mousemove.stop="">그만</span>
       </div>
+
+      <input type="text" v-model="name">
+      {{ name }}
     </div>
 
     <script>
@@ -32,7 +35,8 @@
           link: "https:/medium.com",
           aLinkToMedium: "<a href='http://medium.com'>링크</a>",
           number: 0,
-          count: 0
+          count: 0,
+          name: "Hoza"
         },
         methods: {
           sayHello() {
