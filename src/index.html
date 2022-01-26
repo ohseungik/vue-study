@@ -36,6 +36,20 @@
         <p>FALSE</p>
       </template>
       <button v-on:click="dog = !dog">Change</button>
+      <br><br>
+
+      <h1>장 볼 리스트</h1>
+      <ul>
+        <li v-for="(item, i) in list">{{ item }}({{ i }})</li>
+      </ul>
+
+      <br><br>
+      <h1>여행지 리스트</h1>
+      <ul>
+        <li v-for="city in travelList" :key="city.name">
+          {{city.name}} - {{city.distance}}
+        </li>
+      </ul>
 
     </div>
 
@@ -49,7 +63,16 @@
           number: 0,
           count: 0,
           name: "Hoza",
-          dog: true
+          dog: true,
+          list: ['소갈비', '감자', '당근', '무','깐 밤', '소갈비찜 양념'],
+          travelList: [
+            { name: '강릉', distance: '차로 3시간' },
+            { name: '부산', distance: '차로 5시간' },
+            { name: '춘천', distance: '차로 2시간' },
+            { name: '대만', distance: '비행기로 3시간' },
+            { name: '필리핀', distance: '비행기로 5시간' },
+            { name: '스페인', distance: '비행기로 17시간' },
+          ]
         },
         methods: {
           sayHello() {
