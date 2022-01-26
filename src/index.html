@@ -11,6 +11,7 @@
       <h1 v-once>{{title}}</h1>      
       <p>{{sayHello()}}</p>
       <a :href="link">링크</a>
+      <p v-html="aLinkToMedium"></p>
     </div>
 
     <script>
@@ -18,7 +19,8 @@
         el: "#app",
         data: {
           title: "안녕 VueJS!",
-          link: "https:/medium.com"
+          link: "https:/medium.com",
+          aLinkToMedium: "<a href='http://medium.com'>링크</a>"
         },
         methods: {
           sayHello: function () {
