@@ -8,9 +8,9 @@
   <body>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <div id="app">
-      <p>{{sayHello()}}</p>      
-      <p>{{howAreYou()}}</p>
-      <a v-bind:href="link">링크</a>
+      <h1 v-once>{{title}}</h1>      
+      <p>{{sayHello()}}</p>
+      <a :href="link">링크</a>
     </div>
 
     <script>
@@ -21,11 +21,8 @@
           link: "https:/medium.com"
         },
         methods: {
-          howAreYou: function () {
-            return '기분이 어때?'
-          },
-
           sayHello: function () {
+            this.title = "안녕하십니까!";
             return this.title;
           }
         }
