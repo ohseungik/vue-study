@@ -15,8 +15,8 @@
       {{number}}
       <button v-on:click="rollDice">주사위 던지기</button>
       <br><br>
-      {{count * 3}}
-      <button v-on:click="addCount()">count 1씩 더하기</button>
+      {{count}}
+      <button v-on:click="count++">count 1씩 더하기</button>
       <br><br>
       <button v-on:dblclick="doubleClick()">더블 클릭</button>
       <div v-on:mousemove="addCount()">MouseMove 테스트
@@ -51,6 +51,18 @@
         </li>
       </ul>
 
+      <br><br>
+      <div class="demo" @click="attachRed = !attachRed" :class="{red: attachRed, green: !attachRed}" class="demo">1</div>
+      <div class="demo" :class="color">2</div>
+      <div class="demo" :class="divClasses">3</div>
+
+      <div>
+        2번 상자의 색: <input type="text" v-model="color">
+      </div>
+
+
+      {{text}}
+
     </div>
 
     <script>
@@ -72,7 +84,15 @@
             { name: '대만', distance: '비행기로 3시간' },
             { name: '필리핀', distance: '비행기로 5시간' },
             { name: '스페인', distance: '비행기로 17시간' },
-          ]
+          ],
+          attachRed: false,
+          color:'green',
+          text: "변경 전입니다.",
+        },
+        watch: {
+          count(newVal, oldVal) {
+            this.text = oldVal + "에서 " + newVal + "로 변경되었습니다."
+          }
         },
         methods: {
           sayHello() {
@@ -91,9 +111,18 @@
           
           doubleClick() {
             console.log("더블 클릭");
+          },    
+        },
+        computed: {
+          divClasses: function () {
+            return {
+              red: this.attachRed,
+              green: !this.attachRed
+            }
           }
-          
         }
+
+    
       })
     </script>
   </body>
